@@ -1,0 +1,156 @@
+{% block content %}
+{% if user.is_staff %}
+{% include "librarain.html" %}
+   <center> <form class="form" id="searchform" action="{% url 'search_b' %}" method="get" >
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="enter book title " name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
+    <h1>Book List</h1>
+
+    {% if book_list %}
+
+    <div class="row mx-auto">
+      {% for k in book_list %}
+
+
+    <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+      <div class="card mx-auto text-center ">
+      <img class="card-img-top" src="{{ book.pic.url }}" alt="{{k.Book_number}}" height="400px" width="400px">
+        <div class="card-body">
+          <ul class="card-title">    <a href="{{ book.get_absolute_url }}">
+          {% if k.pic %}
+<img src="{{ k.pic.url }}" height="400px" width="400px">
+{% endif %}
+<div class="card">
+  <div class="card-header">
+     BOOK TITLE: {{k.Book_name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">SHELF NUMBER: {{k.Book_shelf}}</h5>
+      <p class="card-text">
+    <strong> AUTHOR: </strong>{{k.Book_author}}<br/>
+    <strong> CATEGORY :</strong>{{k.Book_category}}<br/>
+    <strong> AVAILABLE COPIES :</strong>{{k.Number_of_available_copies}}<br/>
+    <strong><a href="/remove/{{k.Book_number}}" class="btn btn-info" role="button">Delete Book</a></strong>
+      </p>
+  </div>
+</div>
+    <br>
+          </ul>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+
+
+    {% else %}
+      <p class=" bg bg-white">There are no books.</p>
+    {% endif %}
+   {% elif user.is_student %}
+{% include "student.html" %}
+<center> <form class="form" id="searchform" action="{% url 'search_b' %}" method="get" >
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="enter book title " name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
+    <h1>Book List</h1>
+
+    {% if book_list %}
+
+    <div class="row mx-auto">
+      {% for k in book_list %}
+
+
+    <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+      <div class="card mx-auto text-center ">
+      <img class="card-img-top" src="{{ book.pic.url }}" alt="{{k.Book_number}}" height="400px" width="400px">
+        <div class="card-body">
+          <ol class="card-title">    <a href="{{ book.get_absolute_url }}">
+          {% if k.pic %}
+<img src="{{ k.pic.url }}" height="400px" width="400px">
+{% endif %}
+<div class="card">
+  <div class="card-header">
+     BOOK TITLE: {{k.Book_name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">SHELF NUMBER: {{k.Book_shelf}}</h5>
+      <p class="card-text">
+    <strong> AUTHOR: </strong>{{k.Book_author}}<br/>
+    <strong> CATEGORY :</strong>{{k.Book_category}}<br/>
+    <strong><a href="/borrow/{{k.Book_number}}" class="btn btn-info" role="button">Borrow Book</a></strong>
+      </p>
+  </div>
+</div>
+    <br>
+          </ol>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+
+
+    {% else %}
+      <p class=" bg bg-white">There are no books.</p>
+    {% endif %}
+   {% else %}
+{% include "temp.html" %}
+<center> <form class="form" id="searchform" action="{% url 'search_b' %}" method="get" >
+    <div class="form-group">
+    <input type="text" class="col-5  form-control-lg"  placeholder="enter book title " name="q" type="text"/>
+    <button type="button"  class="btn btn-success form-control-lg" onclick="searchform.submit()">Search</button>
+        </div>
+</form>
+   </center>
+    <h1>Book List</h1>
+
+    {% if book_list %}
+
+    <div class="row mx-auto">
+      {% for k in book_list %}
+
+
+    <div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+      <div class="card mx-auto text-center ">
+      <img class="card-img-top" src="{{ book.pic.url }}" alt="{{k.Book_number}}" height="400px" width="400px">
+        <div class="card-body">
+          <ul class="card-title">    <a href="{{ book.get_absolute_url }}">
+          {% if k.pic %}
+<img src="{{ k.pic.url }}" height="400px" width="400px">
+{% endif %}
+<div class="card">
+  <div class="card-header">
+     BOOK TITLE: {{k.Book_name}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">SHELF NUMBER: {{k.Book_shelf}}</h5>
+      <p class="card-text">
+    <strong> AUTHOR: </strong>{{k.Book_author}}<br/>
+    <strong> CATEGORY :</strong>{{k.Book_category}}<br/>
+
+      </p>
+  </div>
+</div>
+    <br>
+          </ul>
+        </div>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+
+
+    {% else %}
+      <p class=" bg bg-white">There are no books.</p>
+    {% endif %}
+
+   {% endif %}
+{% endblock %}
+

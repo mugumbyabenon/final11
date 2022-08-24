@@ -1,0 +1,42 @@
+{% if user.is_student %}
+{%include "student.html"%}
+{% block content %}
+   <h1>{{title}}</h1>
+<ul>
+  {% for k in queryset %}
+  <div>
+  {% if k.pic %}
+   <li> {{k.Book_name}}
+       <a href="/bookdetails/{{k.Book_number}}"><img src="{{ k.pic.url }}" width=350></a>
+   </li>
+  {% else %}
+  <li class="card">
+    <li class="card-header">
+  BOOK TITLE: {{k.Book_name}}
+  {% endif %}
+    </li>
+  </li>
+</div></ul>
+ {% endfor %}
+{% endblock %}
+{% else %}
+{%include "temp.html"%}
+   <h1>{{title}}</h1>
+<ul>
+  {% for k in queryset %}
+  <div>
+  {% if k.pic %}
+   <li> {{k.Book_name}}
+       <a href="/bookdetails/{{k.Book_number}}"><img src="{{ k.pic.url }}" width=350></a>
+   </li>
+  {% else %}
+  <li class="card">
+    <li class="card-header">
+  BOOK TITLE: {{k.Book_name}}
+  {% endif %}
+    </li>
+  </li>
+</div></ul>
+ {% endfor %}
+{% endif %}
+

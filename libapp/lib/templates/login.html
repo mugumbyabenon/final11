@@ -1,0 +1,29 @@
+{%include "temp.html"%}
+<html>
+<center><h1>{{title}}</h1>
+<form action="" method="post">{%csrf_token%}
+  <div class="form-group">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Enter username">
+    <br>
+  <div class="form-group">
+    <br>
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password">
+    <br>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <br>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+     <br>
+<p>
+  <center><button type="submit"> <a href="/accounts/signup">SIGN UP</button></center>
+  <center><a href="/accounts/reset_r">Forgot password</a></center>
+</p>
+
+</form>
+</center>
+</html>

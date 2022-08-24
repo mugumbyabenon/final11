@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+body {
+  padding: 5px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: courier new;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  font-size: 20px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: orange;
+}
+
+.active {
+  background-color: orange;
+}
+
+h3 {
+ padding: 5px;
+ color: orange;
+ text-align: left;
+ font-family: courier new;
+ font-size: 25px;
+}
+.menu {
+ background-color: white;
+ left: 100%;
+ color: black;
+ font-family: Papyrus;
+ font-size: 20px;
+}
+.menu span {
+ color: orange;
+}
+.sub-menu {
+ display: none;
+ position: absolute;
+}
+.sub-menu ul {
+ display: flex;
+ flex-direction: column;
+}
+
+</style>
+</head>
+<body>
+<div class="menu">
+  <h1 class="logo">Book<span>World.</span></h1>
+</div>
+<ul>
+  <li><a href="/accounts/student ">Home</a></li>
+  <li><a href="/database" class="enrollment">Available books</a></li>
+  <li style="float:right"><a class="active" href="/search">Search</a></li>
+  <li><a href="/accounts/logout">Log out</a></li>
+  <li><a href="/myborrows">Borrowed books</a></li>
+
+
+</ul>
+ {% if messages %}
+     {% for message in messages  %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+     {% endfor %}
+  {% endif %}
+  {% block content %}
+  {% endblock %}
+
+<h3>An Online Library For Students</h3>
+<script defer>
+const enrollmentDropDownMenu = document.querySelector(".sub-menu");
+function toggleDropdown() {
+  if (enrollmentDropDownMenu.style.display != "block") {
+    enrollmentDropDownMenu.style.display = "block"
+  }  else{
+    enrollmentDropDownMenu.style.display = "none"
+  }
+}
+
+document.querySelector(".enrollment").addEventListener("click", toggleDropdown)
+</script>

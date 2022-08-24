@@ -1,0 +1,22 @@
+{%include "student.html"%}
+{{title}}
+<table align="center", border="1">
+    <thead>
+      <tr>
+          <td>No.</td>
+          <td>BOOK TITLE</td>
+          <td>RETURN ID</td>
+          <td>DUE DATE</td>
+      </tr>
+    </thead>
+    {% for k in queryset %}
+   <tbody>
+     <tr>
+         <td>{{forloop.counter}}</td>
+         <td>{{k.book_title}}</td>
+         <td>{{k.q}}</td>
+         <td>{{k.Return}}</td>
+     </tr>
+   </tbody>
+    {% endfor %}
+</table>

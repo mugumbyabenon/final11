@@ -1,0 +1,21 @@
+{%include "librarain.html"%}
+{% block content %}
+    <h1>{{title}}</h1>
+<ul>
+    k
+  {% for k in queryset %}
+  <div>
+  {% if k.pic %}
+   <li> {{k.Book_name}}
+       <a href="/bookdetails/{{k.Book_number}}"><img src="{{ k.pic.url }}" width=350></a>
+   </li>
+  {% else %}
+  <li class="card">
+    <li class="card-header">
+  BOOK TITLE: {{k.Book_name}}
+  {% endif %}
+    </li>
+  </li>
+</div></ul>
+{% endfor %}
+{% endblock %}

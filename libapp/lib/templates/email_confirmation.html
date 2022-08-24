@@ -1,0 +1,6 @@
+{% autoescape off %}
+Welcome to Bookworld Login
+Hello {{ name }}
+Please confirm  by clicking on the following link.
+Confirmation link: http://{{ domain }}{% url 'activate' uid64=uid token=token  %}
+{% endautoescape  %}

@@ -1,0 +1,20 @@
+{%include "temp.html"%}
+</form>
+</center>
+<h1>Book List</h1>
+
+<div class="row mx-auto">{% for book in queryset %}
+
+
+<div class="mx-3 col-md-4 col-lg-3 mb-4 shadow p-2 mb-4 bg-white rounded">
+  <div class="card mx-auto text-center ">
+  <img src="{{ k.pic.url }}" width=200>
+    <div class="card-body">
+      <h2 class="card-title">    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})</h2>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+</div>
+
+

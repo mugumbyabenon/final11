@@ -1,0 +1,18 @@
+
+<html>
+{%include "librarain.html"%}<br>
+{% if user.is_superuser %}
+<h1> Register or delete librarain</h1>
+<form  method="post">
+    {%csrf_token%}
+     <div class="form-group">
+    <br>
+    <label for="exampleInputPassword1">Enter username</label>
+    <input type="text" class="form-control" name="register" placeholder="register or delete librarain">
+    <br>
+  </div>
+    <button type="submit">Register</button>
+</form>
+{% endif %}
+</center>
+</html>

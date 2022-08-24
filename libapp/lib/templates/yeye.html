@@ -1,0 +1,60 @@
+{% if user.is_staff %}
+{%include "librarain.html"%}
+  <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ k.pic.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <ul><li>
+    <div class="col-md-8">
+      <div class="card-body">
+        <strong> Book TITLE: </strong>{{k.Book_name}}<br/>
+    <strong> AUTHOR: </strong>{{k.Book_author}}<br/>
+    <strong> CATEGORY :</strong>{{k.Book_category}}<br/>
+    <strong> AVAILABLE COPIES :</strong>{{k.Number_of_available_copies}}<br/>
+        <strong><a href="/remove/{{k.Book_number}}" class="active" role="button">Delete Book</a></strong><br>
+      </div>
+    </div>
+  </div>
+</div></li>
+{% elif user.is_student %}
+{%include "student.html"%}
+ <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ k.pic.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <ol><li>
+    <div class="col-md-8">
+      <div class="card-body">
+         <strong> Book TITLE: </strong>{{k.Book_name}}<br/>
+    <strong> AUTHOR: </strong>{{k.Book_author}}<br/>
+    <strong> CATEGORY :</strong>{{k.Book_category}}<br/>
+    <strong> AVAILABLE COPIES :</strong>{{k.Number_of_available_copies}}<br/>
+    <strong><a href="/borrow/{{k.Book_number}}" class="active" role="button">Borrow Book</a></strong><br>
+      </div>
+    </div>
+  </div>
+</div></li>
+{% else  %}
+{%include "temp.html"%}
+ <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ k.pic.url }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <ul><li>
+    <div class="col-md-8">
+      <div class="card-body">
+         <strong> Book TITLE: </strong>{{k.Book_name}}<br/>
+    <strong> AUTHOR: </strong>{{k.Book_author}}<br/>
+    <strong> CATEGORY :</strong>{{k.Book_category}}<br/>
+    <strong> AVAILABLE COPIES :</strong>{{k.Number_of_available_copies}}<br/>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div></li>
+{% endif %}
+
