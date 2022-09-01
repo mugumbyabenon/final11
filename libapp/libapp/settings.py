@@ -154,7 +154,7 @@ CHANNEL_LAYERS = {
     },
 }
 # CELERY related settings
-CELERY_BROKER_URL = 'redis://:p10037edb8274c5846f829e8ed5370f4ae1151012713f189be7cb55fe77cff21c@ec2-44-209-225-148.compute-1.amazonaws.com:7960'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 #CELERY_BROKER_URL = os.environ['REDIS_URL']
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
