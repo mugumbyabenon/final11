@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-5_=!mmrnu@lew=#=h6+_lqilr&_dpv4q2#9#1bdi+yr1kc^vtc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','bkworld.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -149,7 +149,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [os.environ.get('REDIS_URL', 'redis://localhost:6379','redis://:p10037edb8274c5846f829e8ed5370f4ae1151012713f189be7cb55fe77cff21c@ec2-44-209-225-148.compute-1.amazonaws.com:7960')],
+            'hosts': [os.environ.get('redis://:p10037edb8274c5846f829e8ed5370f4ae1151012713f189be7cb55fe77cff21c@ec2-44-209-225-148.compute-1.amazonaws.com:7960')],
         },
     },
 }
